@@ -1,0 +1,7 @@
+PAYPAL_CLIENT_ID=
+PAYPAL_SECRET=
+PAYPAL_WEBHOOK_ID=
+DEV_ROUTES=
+
+# Read at build time by Vite for the Studio entry.
+VITE_AG_STUDIO_LICENSE_KEY=

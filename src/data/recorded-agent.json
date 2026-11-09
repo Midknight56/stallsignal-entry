@@ -1,0 +1,56 @@
+{
+  "pick": "mill",
+  "codePick": "mill",
+  "source": "ai",
+  "risk": "low",
+  "stockCostCents": 89500,
+  "label": "Recorded run, captured 2026-11-06T22:36:22.305Z",
+  "kind": "model answer",
+  "capturedAt": "2026-11-06T22:36:22.305Z",
+  "facts": [
+    {
+      "id": "F5",
+      "text": "Millrace Hall: forecast 74 units, expected margin $920.30 at this stock budget (synthetic history)."
+    },
+    {
+      "id": "F4",
+      "text": "Shed 9 at the Wharf: with preorders counted, about 27 units and $4.97 expected margin."
+    },
+    {
+      "id": "F7",
+      "text": "Millrace Hall: 8 paid preorder units so far (recorded sandbox run)."
+    }
+  ],
+  "allocation": [
+    {
+      "product": "tin",
+      "units": 55,
+      "costCents": 22000
+    },
+    {
+      "product": "jar",
+      "units": 43,
+      "costCents": 38700
+    },
+    {
+      "product": "trio",
+      "units": 24,
+      "costCents": 28800
+    }
+  ],
+  "offer": {
+    "venue": "mill",
+    "lines": [
+      "Collect at Millrace Hall.",
+      "Travel tin candle: $14.00.",
+      "Harbour jar candle: $28.00.",
+      "Gift trio: $36.00."
+    ],
+    "terms": "Fully refunded if this venue is not chosen. Pickup Sat 19 Dec."
+  },
+  "neurons": {
+    "reserved": 15,
+    "used": 0.9287639856338501,
+    "appLeft": 876.9825217723846
+  }
+}

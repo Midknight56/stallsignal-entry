@@ -1,0 +1,13 @@
+node_modules/
+public/dist/
+.wrangler/
+.dev.vars
+test-results/
+playwright-report/
+tools/out/
+shots/
+docs/jobs/logs/
+docs/internal/
+data/raw/
+docs/j32-realmap/
+docs/verification/

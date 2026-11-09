@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-06T21:19:17.864Z",
+  "results": [
+    "Desktop map, keyboard and pointer comparison, agent allocation",
+    "Mock preorder, return capture, campaign confirmation, per payment refund and zero liability",
+    "All five screens at 390 × 844 and 1280 × 800, no horizontal page overflow; three sheet heights and dark mode",
+    "No /api network requests in mock mode; no browser exceptions",
+    "StrictMode returns once for paid, checking, declined, pending and canceled; correct next actions; checking blocks pay and close; failed refund retry clears liability",
+    "Real touch input moves the comparison and drags the phone sheet to its high position",
+    "A lost create response refreshes campaign state and disables pay; dated recorded receipts show capture, refund and operation evidence"
+  ],
+  "errors": [],
+  "apiCalls": []
+}

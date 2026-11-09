@@ -1,0 +1,1 @@
+ALTER TABLE preorders ADD COLUMN method TEXT NOT NULL DEFAULT 'paypal';

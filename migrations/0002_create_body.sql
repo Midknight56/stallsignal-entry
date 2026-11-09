@@ -1,0 +1,1 @@
+ALTER TABLE ops ADD COLUMN body TEXT;

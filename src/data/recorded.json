@@ -1,0 +1,660 @@
+{
+  "id": "rec-1",
+  "campaignId": "1b198e62240c4263892ac088c37f1b4f",
+  "recordedAt": "2026-11-06T22:29:36.705Z",
+  "label": "Recorded sandbox run",
+  "chosen": "mill",
+  "state": "closed",
+  "preorders": [
+    {
+      "id": "bf89ff66543c4a6cb039e7e8a48ef55e",
+      "venue": "mill",
+      "product": "tin",
+      "qty": 2,
+      "amountCents": 2800,
+      "state": "captured",
+      "orderId": "2RF576329F368634Y",
+      "captureId": "6PT97947R4371215B",
+      "refundId": null,
+      "debugId": "ca56787c67cd2",
+      "updatedAt": "2026-11-06T22:28:18.474Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:28:07.791Z",
+          "receipt": {
+            "id": "bf89ff66543c4a6cb039e7e8a48ef55e",
+            "venue": "mill",
+            "product": "tin",
+            "qty": 2,
+            "amountCents": 2800,
+            "state": "created",
+            "orderId": "2RF576329F368634Y",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f390330c328e4",
+            "updatedAt": "2026-11-06T22:28:08.457Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:28:18.640Z",
+          "receipt": {
+            "id": "bf89ff66543c4a6cb039e7e8a48ef55e",
+            "venue": "mill",
+            "product": "tin",
+            "qty": 2,
+            "amountCents": 2800,
+            "state": "captured",
+            "orderId": "2RF576329F368634Y",
+            "captureId": "6PT97947R4371215B",
+            "refundId": null,
+            "debugId": "ca56787c67cd2",
+            "updatedAt": "2026-11-06T22:28:18.474Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4c0f9d7dfcb3430594aa783f6766f81c",
+      "venue": "mill",
+      "product": "jar",
+      "qty": 2,
+      "amountCents": 5600,
+      "state": "captured",
+      "orderId": "9U000186HU4552944",
+      "captureId": "6UG02021EP0638412",
+      "refundId": null,
+      "debugId": "ca56787fc19a2",
+      "updatedAt": "2026-11-06T22:28:26.781Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:28:19.648Z",
+          "receipt": {
+            "id": "4c0f9d7dfcb3430594aa783f6766f81c",
+            "venue": "mill",
+            "product": "jar",
+            "qty": 2,
+            "amountCents": 5600,
+            "state": "created",
+            "orderId": "9U000186HU4552944",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f908610b60447",
+            "updatedAt": "2026-11-06T22:28:20.303Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:28:26.166Z",
+          "receipt": {
+            "id": "4c0f9d7dfcb3430594aa783f6766f81c",
+            "venue": "mill",
+            "product": "jar",
+            "qty": 2,
+            "amountCents": 5600,
+            "state": "captured",
+            "orderId": "9U000186HU4552944",
+            "captureId": "6UG02021EP0638412",
+            "refundId": null,
+            "debugId": "ca56787fc19a2",
+            "updatedAt": "2026-11-06T22:28:26.781Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "e1ee3bbbc2194d39b3769ac10a63ac13",
+      "venue": "mill",
+      "product": "tin",
+      "qty": 1,
+      "amountCents": 1400,
+      "state": "captured",
+      "orderId": "6P456869P6497363K",
+      "captureId": "4GE979756F104684B",
+      "refundId": null,
+      "debugId": "ca567882aed1b",
+      "updatedAt": "2026-11-06T22:28:34.521Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:28:27.240Z",
+          "receipt": {
+            "id": "e1ee3bbbc2194d39b3769ac10a63ac13",
+            "venue": "mill",
+            "product": "tin",
+            "qty": 1,
+            "amountCents": 1400,
+            "state": "created",
+            "orderId": "6P456869P6497363K",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f23991174d7e8",
+            "updatedAt": "2026-11-06T22:28:27.914Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:28:33.970Z",
+          "receipt": {
+            "id": "e1ee3bbbc2194d39b3769ac10a63ac13",
+            "venue": "mill",
+            "product": "tin",
+            "qty": 1,
+            "amountCents": 1400,
+            "state": "captured",
+            "orderId": "6P456869P6497363K",
+            "captureId": "4GE979756F104684B",
+            "refundId": null,
+            "debugId": "ca567882aed1b",
+            "updatedAt": "2026-11-06T22:28:34.521Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "de0eae7c3d7a4586a2f6f79c20b1d542",
+      "venue": "mill",
+      "product": "jar",
+      "qty": 1,
+      "amountCents": 2800,
+      "state": "captured",
+      "orderId": "6KH98754CJ205551L",
+      "captureId": "9U762528T12617343",
+      "refundId": null,
+      "debugId": "ca567885b4890",
+      "updatedAt": "2026-11-06T22:28:42.327Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:28:35.130Z",
+          "receipt": {
+            "id": "de0eae7c3d7a4586a2f6f79c20b1d542",
+            "venue": "mill",
+            "product": "jar",
+            "qty": 1,
+            "amountCents": 2800,
+            "state": "created",
+            "orderId": "6KH98754CJ205551L",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f2772984c32b3",
+            "updatedAt": "2026-11-06T22:28:35.785Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:28:41.745Z",
+          "receipt": {
+            "id": "de0eae7c3d7a4586a2f6f79c20b1d542",
+            "venue": "mill",
+            "product": "jar",
+            "qty": 1,
+            "amountCents": 2800,
+            "state": "captured",
+            "orderId": "6KH98754CJ205551L",
+            "captureId": "9U762528T12617343",
+            "refundId": null,
+            "debugId": "ca567885b4890",
+            "updatedAt": "2026-11-06T22:28:42.327Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "9c672e8823e04b0983302483011301ef",
+      "venue": "mill",
+      "product": "trio",
+      "qty": 1,
+      "amountCents": 3600,
+      "state": "captured",
+      "orderId": "67S73656W03565542",
+      "captureId": "3DU63253U0937450Y",
+      "refundId": null,
+      "debugId": "f293668eccf8b",
+      "updatedAt": "2026-11-06T22:28:50.407Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:28:42.846Z",
+          "receipt": {
+            "id": "9c672e8823e04b0983302483011301ef",
+            "venue": "mill",
+            "product": "trio",
+            "qty": 1,
+            "amountCents": 3600,
+            "state": "created",
+            "orderId": "67S73656W03565542",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f82181935d4a4",
+            "updatedAt": "2026-11-06T22:28:43.514Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:28:50.575Z",
+          "receipt": {
+            "id": "9c672e8823e04b0983302483011301ef",
+            "venue": "mill",
+            "product": "trio",
+            "qty": 1,
+            "amountCents": 3600,
+            "state": "captured",
+            "orderId": "67S73656W03565542",
+            "captureId": "3DU63253U0937450Y",
+            "refundId": null,
+            "debugId": "f293668eccf8b",
+            "updatedAt": "2026-11-06T22:28:50.407Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "591438d966494e9bb29a68584cb1a6ea",
+      "venue": "mill",
+      "product": "tin",
+      "qty": 1,
+      "amountCents": 1400,
+      "state": "captured",
+      "orderId": "46P72084XT572360A",
+      "captureId": "2FS59590X58820209",
+      "refundId": null,
+      "debugId": "f275983147472",
+      "updatedAt": "2026-11-06T22:28:59.344Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:28:51.663Z",
+          "receipt": {
+            "id": "591438d966494e9bb29a68584cb1a6ea",
+            "venue": "mill",
+            "product": "tin",
+            "qty": 1,
+            "amountCents": 1400,
+            "state": "created",
+            "orderId": "46P72084XT572360A",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f1168339a31f8",
+            "updatedAt": "2026-11-06T22:28:52.315Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:28:59.308Z",
+          "receipt": {
+            "id": "591438d966494e9bb29a68584cb1a6ea",
+            "venue": "mill",
+            "product": "tin",
+            "qty": 1,
+            "amountCents": 1400,
+            "state": "captured",
+            "orderId": "46P72084XT572360A",
+            "captureId": "2FS59590X58820209",
+            "refundId": null,
+            "debugId": "f275983147472",
+            "updatedAt": "2026-11-06T22:28:59.344Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "33affb41549741ae90ff2504635a1af1",
+      "venue": "wharf",
+      "product": "jar",
+      "qty": 1,
+      "amountCents": 2800,
+      "state": "refunded",
+      "orderId": "1YL84984NJ657243L",
+      "captureId": "2ME6405686813091K",
+      "refundId": "2KV04850A7903314S",
+      "debugId": "f780217daedc4",
+      "updatedAt": "2026-11-06T22:29:32.056Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:29:00.473Z",
+          "receipt": {
+            "id": "33affb41549741ae90ff2504635a1af1",
+            "venue": "wharf",
+            "product": "jar",
+            "qty": 1,
+            "amountCents": 2800,
+            "state": "created",
+            "orderId": "1YL84984NJ657243L",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f463577a3886f",
+            "updatedAt": "2026-11-06T22:29:01.119Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:29:08.606Z",
+          "receipt": {
+            "id": "33affb41549741ae90ff2504635a1af1",
+            "venue": "wharf",
+            "product": "jar",
+            "qty": 1,
+            "amountCents": 2800,
+            "state": "captured",
+            "orderId": "1YL84984NJ657243L",
+            "captureId": "2ME6405686813091K",
+            "refundId": null,
+            "debugId": "f1703367ce35c",
+            "updatedAt": "2026-11-06T22:29:08.325Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:29:36.529Z",
+          "receipt": {
+            "id": "33affb41549741ae90ff2504635a1af1",
+            "venue": "wharf",
+            "product": "jar",
+            "qty": 1,
+            "amountCents": 2800,
+            "state": "refunded",
+            "orderId": "1YL84984NJ657243L",
+            "captureId": "2ME6405686813091K",
+            "refundId": "2KV04850A7903314S",
+            "debugId": "f780217daedc4",
+            "updatedAt": "2026-11-06T22:29:32.056Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0acb054976844c70a708b0fe18f7eb64",
+      "venue": "wharf",
+      "product": "tin",
+      "qty": 1,
+      "amountCents": 1400,
+      "state": "refunded",
+      "orderId": "96Y96229LS572520D",
+      "captureId": "0SX36125Y9147873H",
+      "refundId": "9PT605705T501131L",
+      "debugId": "f5932173b1cb6",
+      "updatedAt": "2026-11-06T22:29:34.491Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:29:09.599Z",
+          "receipt": {
+            "id": "0acb054976844c70a708b0fe18f7eb64",
+            "venue": "wharf",
+            "product": "tin",
+            "qty": 1,
+            "amountCents": 1400,
+            "state": "created",
+            "orderId": "96Y96229LS572520D",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f51521221efde",
+            "updatedAt": "2026-11-06T22:29:10.237Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:29:17.280Z",
+          "receipt": {
+            "id": "0acb054976844c70a708b0fe18f7eb64",
+            "venue": "wharf",
+            "product": "tin",
+            "qty": 1,
+            "amountCents": 1400,
+            "state": "captured",
+            "orderId": "96Y96229LS572520D",
+            "captureId": "0SX36125Y9147873H",
+            "refundId": null,
+            "debugId": "f278893732f95",
+            "updatedAt": "2026-11-06T22:29:17.138Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:29:36.529Z",
+          "receipt": {
+            "id": "0acb054976844c70a708b0fe18f7eb64",
+            "venue": "wharf",
+            "product": "tin",
+            "qty": 1,
+            "amountCents": 1400,
+            "state": "refunded",
+            "orderId": "96Y96229LS572520D",
+            "captureId": "0SX36125Y9147873H",
+            "refundId": "9PT605705T501131L",
+            "debugId": "f5932173b1cb6",
+            "updatedAt": "2026-11-06T22:29:34.491Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3b9a246f4b1f44339c92c63f8cbff46d",
+      "venue": "linden",
+      "product": "trio",
+      "qty": 1,
+      "amountCents": 3600,
+      "state": "refunded",
+      "orderId": "82287521KD752144T",
+      "captureId": "0WH08661U1514534V",
+      "refundId": "2HX067641D081461B",
+      "debugId": "f301755c5d2b3",
+      "updatedAt": "2026-11-06T22:29:36.741Z",
+      "source": "recorded",
+      "timeline": [
+        {
+          "observedAt": "2026-11-06T22:29:18.338Z",
+          "receipt": {
+            "id": "3b9a246f4b1f44339c92c63f8cbff46d",
+            "venue": "linden",
+            "product": "trio",
+            "qty": 1,
+            "amountCents": 3600,
+            "state": "created",
+            "orderId": "82287521KD752144T",
+            "captureId": null,
+            "refundId": null,
+            "debugId": "f982927988f5d",
+            "updatedAt": "2026-11-06T22:29:19.014Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:29:25.791Z",
+          "receipt": {
+            "id": "3b9a246f4b1f44339c92c63f8cbff46d",
+            "venue": "linden",
+            "product": "trio",
+            "qty": 1,
+            "amountCents": 3600,
+            "state": "captured",
+            "orderId": "82287521KD752144T",
+            "captureId": "0WH08661U1514534V",
+            "refundId": null,
+            "debugId": "f6997445a8c06",
+            "updatedAt": "2026-11-06T22:29:25.314Z"
+          }
+        },
+        {
+          "observedAt": "2026-11-06T22:29:36.529Z",
+          "receipt": {
+            "id": "3b9a246f4b1f44339c92c63f8cbff46d",
+            "venue": "linden",
+            "product": "trio",
+            "qty": 1,
+            "amountCents": 3600,
+            "state": "refunded",
+            "orderId": "82287521KD752144T",
+            "captureId": "0WH08661U1514534V",
+            "refundId": "2HX067641D081461B",
+            "debugId": "f301755c5d2b3",
+            "updatedAt": "2026-11-06T22:29:36.741Z"
+          }
+        }
+      ]
+    }
+  ],
+  "ops": [
+    {
+      "kind": "create",
+      "requestId": "ss-create-bf89ff66543c4a6cb039e7e8a48ef55e",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "2RF576329F368634Y",
+      "at": "2026-11-06T22:28:07.281Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-bf89ff66543c4a6cb039e7e8a48ef55e",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "2RF576329F368634Y",
+      "at": "2026-11-06T22:28:16.955Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-4c0f9d7dfcb3430594aa783f6766f81c",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "9U000186HU4552944",
+      "at": "2026-11-06T22:28:19.543Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-4c0f9d7dfcb3430594aa783f6766f81c",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "9U000186HU4552944",
+      "at": "2026-11-06T22:28:25.530Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-e1ee3bbbc2194d39b3769ac10a63ac13",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "6P456869P6497363K",
+      "at": "2026-11-06T22:28:27.059Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-e1ee3bbbc2194d39b3769ac10a63ac13",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "6P456869P6497363K",
+      "at": "2026-11-06T22:28:33.030Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-de0eae7c3d7a4586a2f6f79c20b1d542",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "6KH98754CJ205551L",
+      "at": "2026-11-06T22:28:34.872Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-de0eae7c3d7a4586a2f6f79c20b1d542",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "6KH98754CJ205551L",
+      "at": "2026-11-06T22:28:40.774Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-9c672e8823e04b0983302483011301ef",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "67S73656W03565542",
+      "at": "2026-11-06T22:28:42.672Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-9c672e8823e04b0983302483011301ef",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "67S73656W03565542",
+      "at": "2026-11-06T22:28:48.604Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-591438d966494e9bb29a68584cb1a6ea",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "46P72084XT572360A",
+      "at": "2026-11-06T22:28:51.474Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-591438d966494e9bb29a68584cb1a6ea",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "46P72084XT572360A",
+      "at": "2026-11-06T22:28:57.939Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-33affb41549741ae90ff2504635a1af1",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "1YL84984NJ657243L",
+      "at": "2026-11-06T22:29:00.227Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-33affb41549741ae90ff2504635a1af1",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "1YL84984NJ657243L",
+      "at": "2026-11-06T22:29:06.929Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-0acb054976844c70a708b0fe18f7eb64",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "96Y96229LS572520D",
+      "at": "2026-11-06T22:29:09.491Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-0acb054976844c70a708b0fe18f7eb64",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "96Y96229LS572520D",
+      "at": "2026-11-06T22:29:15.282Z"
+    },
+    {
+      "kind": "create",
+      "requestId": "ss-create-3b9a246f4b1f44339c92c63f8cbff46d",
+      "status": "ok",
+      "http": 200,
+      "paypalId": "82287521KD752144T",
+      "at": "2026-11-06T22:29:18.184Z"
+    },
+    {
+      "kind": "capture",
+      "requestId": "ss-capture-3b9a246f4b1f44339c92c63f8cbff46d",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "82287521KD752144T",
+      "at": "2026-11-06T22:29:23.772Z"
+    },
+    {
+      "kind": "refund",
+      "requestId": "ss-refund-33affb41549741ae90ff2504635a1af1",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "2KV04850A7903314S",
+      "at": "2026-11-06T22:29:30.260Z"
+    },
+    {
+      "kind": "refund",
+      "requestId": "ss-refund-0acb054976844c70a708b0fe18f7eb64",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "9PT605705T501131L",
+      "at": "2026-11-06T22:29:32.526Z"
+    },
+    {
+      "kind": "refund",
+      "requestId": "ss-refund-3b9a246f4b1f44339c92c63f8cbff46d",
+      "status": "ok",
+      "http": 201,
+      "paypalId": "2HX067641D081461B",
+      "at": "2026-11-06T22:29:34.954Z"
+    }
+  ]
+}

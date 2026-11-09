@@ -90,8 +90,7 @@ export default function CityMap({
         <span className="eyebrow">Tallow and Tide • 19 + 20 Dec 2026</span>
         <h1>Where should we set up?</h1>
         <p>
-          {world.city.name} <span className="chip">Real streets</span>{' '}
-          <span className="chip">Example venues</span>
+          {world.city.name} <span className="chip">Real streets</span>
         </p>
       </div>
       <div className="compare-line" style={{ left: `${split}%` }}>
@@ -138,10 +137,11 @@ export default function CityMap({
         <span className="paid">○ Paid units</span>
         <span className="paid-demand">
           <span aria-hidden="true">▨ ●</span>{' '}
-          {includeRecorded ? 'Paid demand: our recorded sandbox run of 6 Nov plus yours.' : 'Paid demand: this campaign only.'}
+          {includeRecorded ? 'Paid demand: our recorded run of 6 Nov plus yours.' : 'Paid demand: this campaign only.'}
         </span>
         <span>Heat: daytime workers, 2024</span>
         <span>Synthetic history</span>
+        <span>Map data: U.S. Census Bureau (TIGER/Line 2025, LODES 8.5).</span>
       </div>
     </div>
   );

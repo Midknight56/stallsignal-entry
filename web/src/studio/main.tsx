@@ -334,7 +334,7 @@ function StudioPage() {
           </a>
           <a href={href('/about')}>About</a>
         </nav>
-        <div className="modes">Sandbox: test money{isMock() && ' · Preview data'}</div>
+        {isMock() && <div className="modes">Preview data</div>}
       </header>
       <main id="studio-content" className="studio-shell">
         <section className="studio-intro">

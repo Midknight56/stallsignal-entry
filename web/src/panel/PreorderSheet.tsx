@@ -66,7 +66,7 @@ export default function PreorderSheet({
           </button>
         )}
       </div>
-      <p className="chip">{isMock() ? 'Mock preview, no payment' : 'Live sandbox'}</p>
+      {isMock() && <p className="chip">Mock preview, no payment</p>}
       <label>
         Venue
         <select aria-label="Venue" value={site} onChange={(e) => setSite(e.target.value as VenueId)}>
@@ -101,7 +101,7 @@ export default function PreorderSheet({
       </label>
       <p className="amount">{money(world.catalog.find((p) => p.id === product)!.priceCents * qty)}</p>
       <p>Fully refunded if this venue is not chosen. Pickup Sat 19 Dec.</p>
-      <p className="small">Tallow and Tide. Sandbox only. No real money moves.</p>
+      <p className="small">Sold by Tallow and Tide.</p>
       {campaign.checking && (
         <p role="status" className="banner">
           Checking payment
@@ -119,15 +119,15 @@ export default function PreorderSheet({
             disabled={busy || campaign.checking || campaign.state !== 'open'}
             onClick={() => pay('card')}
           >
-            Pay with test card
+            Pay by card
           </button>
-          <p className="small">Sandbox test card. No login. Test money.</p>
+          <p className="small">No login needed.</p>
         </div>
         <button
           disabled={busy || campaign.checking || campaign.state !== 'open'}
           onClick={() => pay('paypal')}
         >
-          {failed ? 'Try again' : 'Pay with PayPal sandbox'}
+          {failed ? 'Try again' : 'Pay with PayPal'}
         </button>
       </div>
       {busy && <p role="status">Checking payment…</p>}

@@ -1,6 +1,6 @@
 import type { AgentView, CampaignView, Venue, Preorder, PreorderState, PaymentMethod } from '../../src/shared/types';
 
-export const methodLabel = (method?: PaymentMethod) => (method === 'card' ? 'Test card' : 'PayPal');
+export const methodLabel = (method?: PaymentMethod) => (method === 'card' ? 'Card' : 'PayPal');
 
 export const money = (cents: number) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);

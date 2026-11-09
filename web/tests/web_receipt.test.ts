@@ -54,10 +54,10 @@ it('shortens preorder ids consistently', () => {
   expect(shortId('0472643feb964ea29303db0bb260f263')).toBe('0472643f…f263');
 });
 
-it('shows Test card for a card receipt and PayPal for older recorded receipts', () => {
+it('shows Card for a card receipt and PayPal for older recorded receipts', () => {
   const card = renderToStaticMarkup(createElement(Receipt, { preorder: { ...paid, method: 'card' } }));
   const legacy = renderToStaticMarkup(createElement(Receipt, { preorder: { ...paid, method: undefined } }));
-  expect(card).toContain('<dt>Method</dt><dd>Test card</dd>');
+  expect(card).toContain('<dt>Method</dt><dd>Card</dd>');
   expect(card).toContain('Paid');
   expect(card).toContain(paid.captureId!);
   expect(legacy).toContain('<dt>Method</dt><dd>PayPal</dd>');

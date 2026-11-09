@@ -40,7 +40,7 @@ test('paid preorders, losing-venue refund and public scorecard', async ({ page }
   await page.goto(`${base}/campaign`);
   const current = await campaign(page);
   expect(current.venues.find((v) => v.id === 'mill')?.paidUnits).toBe(1);
-  await expect(page.getByRole('region', { name: 'Your live sandbox preorders' })).toContainText('Paid');
+  await expect(page.getByRole('region', { name: 'Your preorders' })).toContainText('Paid');
 
   const wharf = await placePreorder(page, 'wharf');
   await waitPayment(page, wharf.id, ['captured']);
@@ -57,7 +57,7 @@ test('paid preorders, losing-venue refund and public scorecard', async ({ page }
   await noHorizontalScroll(page);
   await page.goto(`${base}/scorecard`);
   await expect(
-    page.getByRole('heading', { name: `Sandbox campaign ${shortCampaignId(closed.id)}`, exact: true }),
+    page.getByRole('heading', { name: `Campaign ${shortCampaignId(closed.id)}`, exact: true }),
   ).toBeVisible();
   await noHorizontalScroll(page);
   expect(errors).toEqual([]);

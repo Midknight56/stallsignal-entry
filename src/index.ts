@@ -84,7 +84,7 @@ export const world: World = {
   history,
   recorded: {
     ...recorded,
-    label: recorded.recordedAt ? 'Recorded sandbox run' : 'Recorded run not captured yet',
+    label: recorded.recordedAt ? 'Recorded run' : 'Recorded run not captured yet',
   },
   preorderShare: PREORDER_SHARE,
   modes: [

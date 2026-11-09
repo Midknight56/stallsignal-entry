@@ -7,14 +7,14 @@ async function payByCard(page: Page, decline = false) {
   await openMap(page);
   await page.getByRole('button', { name: 'Preorder at this venue', exact: true }).click();
   await page.getByLabel('Venue', { exact: true }).selectOption('wharf');
-  await expect(page.getByText('Sandbox test card. No login. Test money.', { exact: true })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Pay with PayPal sandbox', exact: true })).toBeVisible();
+  await expect(page.getByText('No login needed.', { exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Pay with PayPal', exact: true })).toBeVisible();
   await noHorizontalScroll(page);
   if (decline) await fault(page, 'decline_next_card');
   const response = page.waitForResponse(
     (r) => new URL(r.url()).pathname === '/api/preorders' && r.request().method() === 'POST',
   );
-  await page.getByRole('button', { name: 'Pay with test card', exact: true }).click();
+  await page.getByRole('button', { name: 'Pay by card', exact: true }).click();
   const created = await response;
   expect(created.ok()).toBe(true);
   expect(created.request().postDataJSON()).toEqual({
@@ -28,7 +28,7 @@ async function payByCard(page: Page, decline = false) {
   const preorder = (await campaign(page)).preorders.find((row) => row.id === id);
   expect(preorder).toBeDefined();
   expect(preorder!.method).toBe('card');
-  await expect(page.locator('.receipt')).toContainText('Test card');
+  await expect(page.locator('.receipt')).toContainText('Card');
   return preorder!;
 }
 

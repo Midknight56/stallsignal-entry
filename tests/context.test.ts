@@ -80,7 +80,7 @@ describe('one decision context', () => {
       `$150, this campaign only, ${HISTORY_SHARE_PERCENT}% preorder share`,
     );
     expect(contextLabel({ budget: 90000, includeRecorded: true, sharePercent: 20 })).toBe(
-      '$900, recorded example included, 20% preorder share',
+      '$900, recorded run included, 20% preorder share',
     );
   });
   it('a closed campaign keeps the decision the maker saw', () => {

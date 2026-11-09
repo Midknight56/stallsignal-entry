@@ -41,8 +41,8 @@ export const isUnsettledPayment = (state: PreorderState) => unsettledPaymentStat
 export function shapeTables(world: MapWorld, campaign: CampaignView, scorecard: ScorecardView) {
   const name = (id: VenueId) => world.venues.find((v) => v.id === id)?.name ?? id;
   const recordedSource = recordingTime(world)
-    ? `Recorded sandbox run, ${recordingTime(world)}`
-    : 'Recorded sandbox run';
+    ? `Recorded run, ${recordingTime(world)}`
+    : 'Recorded run';
   const venues = world.venues.map((v) => {
     const totals = campaign.venues.find((row) => row.id === v.id);
     return {
@@ -79,7 +79,7 @@ export function shapeTables(world: MapWorld, campaign: CampaignView, scorecard: 
     venueId: p.venue,
     venue: name(p.venue),
     stateLabel: stateLabel(p.state),
-    source: p.source === 'recorded' ? recordedSource : 'Live sandbox',
+    source: p.source === 'recorded' ? recordedSource : 'Live payment',
     outstanding: isOutstanding(p.state),
     liabilityCents: isOutstanding(p.state) ? p.amountCents : 0,
     amount: p.amountCents / 100,
@@ -113,7 +113,7 @@ export function shapeTables(world: MapWorld, campaign: CampaignView, scorecard: 
       kind: 'live',
       label: 'Your captured demand',
       value: `${v.paidUnits} units`,
-      source: 'Live sandbox',
+      source: 'Live payment',
     });
   }
   for (const row of history)
@@ -131,7 +131,7 @@ export function shapeTables(world: MapWorld, campaign: CampaignView, scorecard: 
       id: `payment:${p.id}`,
       venueId: p.venueId,
       venue: p.venue,
-      kind: p.source === 'Live sandbox' ? 'live' : 'recorded',
+      kind: p.source === 'Live payment' ? 'live' : 'recorded',
       label: `${p.qty} units · ${p.stateLabel}`,
       value: `${p.amountCents} cents`,
       source: p.source,
@@ -201,7 +201,7 @@ export function studioData(tables: StudioTables): AgDataSourcesDefinition {
       },
       {
         id: 'preorders',
-        name: 'Sandbox preorders',
+        name: 'Preorders',
         data: tables.preorders,
         fields: [
           ...venueFields,

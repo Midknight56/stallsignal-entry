@@ -16,7 +16,6 @@ import {
 import Grid from '../components/Grid';
 import { panelDecision, scenarioOf } from '../decision';
 import { DEFAULT_CONTEXT, contextLabel, type DecisionContext } from '../../../src/domain/context';
-import ExampleTag from '../components/ExampleTag';
 import { isRefundRow, isUncertainCheckingRefund, nextCheckDelay, refundRowsToCheck } from '../refundChecks';
 export default function Campaign({
   world,
@@ -222,7 +221,7 @@ export default function Campaign({
   ];
   return (
     <main className="page">
-      <p className="eyebrow">Your live sandbox</p>
+      <p className="eyebrow">Your campaign</p>
       <h1>Your campaign</h1>
       <span className="chip">{campaign.state}</span>
       <p className="decision">{decisionLine(view, world.venues, context.includeRecorded)}</p>
@@ -259,7 +258,6 @@ export default function Campaign({
         {campaign.venues.map((v) => (
           <article className="card" key={v.id}>
             <h2>{venueName(world.venues, v.id)}</h2>
-            <ExampleTag />
             <p className="forecast">{v.forecastUnits} forecast units</p>
             <p className="paid">
               {v.recordedUnits} recorded units. {v.paidUnits} your paid units.
@@ -318,7 +316,7 @@ export default function Campaign({
       </section>
       <section>
         <h2>Your preorders</h2>
-        <Grid rows={campaign.preorders} columns={columns} label="Your live sandbox preorders" />
+        <Grid rows={campaign.preorders} columns={columns} label="Your preorders" />
       </section>
       <section className="card">
         <h2>Close this campaign</h2>

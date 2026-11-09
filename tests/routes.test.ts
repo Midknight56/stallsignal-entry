@@ -82,7 +82,7 @@ describe('routing and session failures', () => {
     expect(body.history.every((h) => h.label === 'Synthetic history')).toBe(true);
     expect(body.heat.every((h) => h.label === 'Daytime workers, 2024')).toBe(true);
     expect(body.recorded.recordedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
-    expect(body.recorded.label).toBe('Recorded sandbox run');
+    expect(body.recorded.label).toBe('Recorded run');
     expect(body.recorded.preorders).toHaveLength(9);
     expect(
       body.recorded.preorders.every((p) => !('payerName' in p) && !('payerEmail' in p) && !('address' in p)),

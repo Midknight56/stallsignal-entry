@@ -22,3 +22,12 @@ describe('About page numbers and budget', () => {
     expect(html).not.toContain('45');
   });
 });
+
+describe('About page Map data section', () => {
+  it('contains h2 Map data and the long block first and last sentences', () => {
+    const html = renderToStaticMarkup(createElement(About, { href: (path: string) => path }));
+    expect(html).toContain('<h2>Map data</h2>');
+    expect(html).toContain('Map data: U.S. Census Bureau.');
+    expect(html).toContain('TIGER/Line is a registered trademark of the U.S. Census Bureau.');
+  });
+});

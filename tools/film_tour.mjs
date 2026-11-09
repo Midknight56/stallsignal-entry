@@ -280,7 +280,7 @@ try {
   await B.wait(600);
   await bpage.getByLabel('Quantity', { exact: true }).selectOption(QTY);
   await B.wait(3_500);
-  const pay = bpage.getByRole('button', { name: 'Pay with test card', exact: true });
+  const pay = bpage.getByRole('button', { name: 'Pay by card', exact: true });
   await B.moveTo(pay);
   B.mark('pay_click');
   await pay.click();
@@ -295,7 +295,7 @@ try {
 
   // 1:04 to 1:17. The maker sees the buyer's units.
   // Open Campaign again inside the page (a reload would put the budget back to $900 anyway, but keeps nothing else).
-  await M.nav('Receipts', page.getByRole('heading', { name: 'Recorded sandbox run' }));
+  await M.nav('Receipts', page.getByRole('heading', { name: 'Recorded run' }));
   await M.nav('Campaign', page.getByRole('heading', { name: 'Your campaign' }));
   await page.getByText('Buyer', { exact: true }).first().waitFor({ timeout: 60_000 });
   await M.scrollTo(page.locator('.totals').first());
@@ -387,7 +387,7 @@ try {
   // 2:27 to 2:42. Scorecard: this campaign's card.
   await M.go('/scorecard', page.getByRole('heading', { name: 'Closed campaigns', exact: true }));
   const campaignId = (await waitCampaign(maker.request, () => true, 5_000).catch(() => null))?.id;
-  const cards = page.locator('article.card').filter({ hasText: 'Sandbox campaign' });
+  const cards = page.locator('article.card').filter({ has: page.locator('h3', { hasText: /^Campaign / }) });
   const card = campaignId
     ? cards.filter({ hasText: `${campaignId.slice(0, 4)}…${campaignId.slice(-4)}` }).first()
     : cards.first();

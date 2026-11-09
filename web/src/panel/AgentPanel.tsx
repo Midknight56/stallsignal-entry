@@ -128,7 +128,7 @@ export default function AgentPanel({
           }
         }}
       >
-        View recorded example
+        View recorded run
       </button>
       {note && (
         <p role="status" className="small agent-note">
@@ -141,8 +141,8 @@ export default function AgentPanel({
         </p>
       )}
       {recordedExample && (
-        <div className="recorded-example" aria-label="Recorded agent example">
-          <h3>{`Recorded example, ${recordedBudget} budget, ${recordedDate}`}</h3>
+        <div className="recorded-example" aria-label="Recorded agent run">
+          <h3>{`Recorded run, ${recordedBudget} budget, ${recordedDate}`}</h3>
           <table>
             <caption>Stock allocation</caption>
             <thead>
@@ -230,8 +230,8 @@ export default function AgentPanel({
           <p>{result.offer.lines.join(' ')}</p>
           <p>{result.offer.terms}</p>
           <p className="small">
-            Neurons used: {result.neurons.used}. Reserved: {result.neurons.reserved}. Left today:{' '}
-            {result.neurons.appLeft}.
+            Neurons used: {Math.round(result.neurons.used)}. Reserved: {Math.round(result.neurons.reserved)}. Left today:{' '}
+            {Math.round(result.neurons.appLeft)}.
           </p>
         </div>
       )}

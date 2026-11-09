@@ -33,10 +33,10 @@ it('shares the real city, venues, catalog, history and worker heat', () => {
   expect(markup).toContain('stroke-width="0.7"');
   expect(markup).toContain('Portland, Maine');
   expect(markup).toContain('Real streets');
-  expect(markup).toContain('Example venues');
+  expect(markup).not.toContain('Example venues');
   expect(markup).toContain('Heat: daytime workers, 2024');
   expect(markup).toContain('About 0 daytime workers here');
-  expect(markup).not.toMatch(/Census Bureau|TIGER\/Line|LODES/);
+  expect(markup).toContain('Map data: U.S. Census Bureau (TIGER/Line 2025, LODES 8.5).');
   expect(markup.indexOf('data-layer="heat"')).toBeLessThan(markup.indexOf('data-layer="roads"'));
   expect(markup).not.toContain('City geometry is not available yet');
 });

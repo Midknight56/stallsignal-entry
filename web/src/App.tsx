@@ -123,7 +123,7 @@ export default function App() {
             </a>
           ))}
         </nav>
-        <div className="modes">Sandbox: test money{isMock() && ' · Preview data'}</div>
+        {isMock() && <div className="modes">Preview data</div>}
       </header>
       <div id="content" tabIndex={-1}>
         {path.startsWith('/c/') ? (

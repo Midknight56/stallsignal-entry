@@ -4,14 +4,20 @@ import type { PaymentMethod, Preorder, ProductId, SharedCampaignView, VenueId } 
 import { createSharedPreorder, getShared } from '../api';
 import { errorText, money, stateLabel, stateTone, venueName } from '../format';
 import PreorderSheet from '../panel/PreorderSheet';
-import ExampleTag from '../components/ExampleTag';
 
-export default function BuyerCampaign({ token }: { token: string }) {
-  const [shared, setShared] = useState<SharedCampaignView | null>(null);
+export default function BuyerCampaign({
+  token,
+  initialShared,
+}: {
+  token: string;
+  initialShared?: SharedCampaignView;
+}) {
+  const [shared, setShared] = useState<SharedCampaignView | null>(initialShared ?? null);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!initialShared);
 
   useEffect(() => {
+    if (initialShared) return;
     let active = true;
     getShared(token)
       .then((data) => {
@@ -85,12 +91,10 @@ export default function BuyerCampaign({ token }: { token: string }) {
     <main className="page">
       <p className="eyebrow">Pickup 19 + 20 Dec 2026</p>
       <h1>Preorder for the December popup</h1>
-      <p>Example maker and example venues. Sandbox test money only.</p>
       <div className="totals">
         {shared.venues.map((v) => (
           <article className="card" key={v.id}>
             <h2>{venueName(venues, v.id)}</h2>
-            <ExampleTag />
             <p className="forecast">{v.forecastUnits} forecast units</p>
             <p className="paid">{v.paidUnits} paid units</p>
           </article>

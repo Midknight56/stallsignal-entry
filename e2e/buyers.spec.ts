@@ -29,9 +29,6 @@ test('maker shares campaign, buyer pays at Millrace Hall, maker closes and buyer
     await expect(
       buyerPage.getByRole('heading', { name: 'Preorder for the December popup', exact: true }),
     ).toBeVisible();
-    await expect(
-      buyerPage.getByText('Example maker and example venues. Sandbox test money only.', { exact: true }),
-    ).toBeVisible();
     await noHorizontalScroll(buyerPage);
 
     // 3. Buyer pays with test card at Millrace Hall
@@ -39,7 +36,7 @@ test('maker shares campaign, buyer pays at Millrace Hall, maker closes and buyer
     const responsePromise = buyerPage.waitForResponse(
       (r) => r.url().includes(`/api/shared/${token}/preorders`) && r.request().method() === 'POST',
     );
-    await buyerPage.getByRole('button', { name: 'Pay with test card', exact: true }).click();
+    await buyerPage.getByRole('button', { name: 'Pay by card', exact: true }).click();
     const createdResponse = await responsePromise;
     expect(createdResponse.ok()).toBe(true);
 

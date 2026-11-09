@@ -46,7 +46,7 @@ export default function WhatChanges({
         </label>
         <label>
           <input type="radio" name="evidence" value="recorded" checked={includeRecorded} onChange={() => onIncludeRecorded(true)} />
-          Include recorded example
+          Include recorded run
         </label>
       </fieldset>
       <div className="what-changes-controls">

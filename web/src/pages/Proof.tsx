@@ -24,7 +24,7 @@ export default function Proof() {
       <p className="eyebrow">Browser proof</p>
       <h1>Payment guard proofs</h1>
       <p className="proof-banner">
-        These checks run the real payment code in your browser against a pretend PayPal. Nothing is sent
+        These checks run the real payment code in your browser. A local stand in plays PayPal, so nothing is sent
         anywhere.
       </p>
 

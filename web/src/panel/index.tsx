@@ -116,7 +116,7 @@ export default function Panel({
             </p>
           )}
           <p className="budget">Stock budget {money(budget)}</p>
-          <p className="captured">Captured in this campaign: {money(campaign.capturedCents)} (sandbox, not refunded)</p>
+          <p className="captured">Captured in this campaign: {money(campaign.capturedCents)} (not refunded)</p>
           <DecisionCost campaign={campaign} venues={world.venues} budget={budget} scenario={scenario} />
         </section>
         <WhatChanges

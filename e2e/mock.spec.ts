@@ -20,7 +20,7 @@ test('mock walks every screen and the payment flow without any API request', asy
   await page.screenshot({ path: info.outputPath('mock-map-agent.png') });
   await page.getByRole('button', { name: 'Preorder at this venue', exact: true }).click();
   await page.getByLabel('Venue', { exact: true }).selectOption('wharf');
-  await page.getByRole('button', { name: 'Pay with PayPal sandbox', exact: true }).click();
+  await page.getByRole('button', { name: 'Pay with PayPal', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Paid', exact: true }).first()).toBeVisible();
   await expect(page.locator('.receipt')).toContainText('MOCK-CAPTURE');
   await page.screenshot({ path: info.outputPath('mock-paid-receipt.png') });

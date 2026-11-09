@@ -284,7 +284,7 @@ describe('agent run', () => {
             ' (synthetic history).',
         );
         expect(facts[i * 4 + 2].text).toBe(
-          prefix + `${row.recordedUnits} paid preorder units so far (recorded sandbox run).`,
+          prefix + `${row.recordedUnits} paid preorder units so far (recorded run).`,
         );
         expect(facts[i * 4 + 3].text).toBe(
           prefix +
@@ -392,16 +392,16 @@ describe('agent run', () => {
     const facts = makeFacts(evidence);
     const row = decide(evidence.preorders, evidence.budget, evidence.recorded).venues[1];
     expect(facts.filter((f) => f.venue === 'mill').map((f) => f.text)).toContain(
-      'Millrace Hall: 3 paid preorder units so far (live sandbox).',
+      'Millrace Hall: 3 paid preorder units so far (this campaign).',
     );
     expect(facts.filter((f) => f.venue === 'mill').map((f) => f.text)).toContain(
-      'Millrace Hall: 2 paid preorder units so far (recorded sandbox run).',
+      'Millrace Hall: 2 paid preorder units so far (recorded run).',
     );
     expect(facts.find((f) => f.venue === 'mill' && f.text.includes('with preorders'))?.text).toBe(
       `Millrace Hall: with preorders counted, about ${Math.round(row.blendedUnits)} units and ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(row.marginCents / 100)} expected margin.`,
     );
     expect(facts).toHaveLength(13);
-    expect(facts.every((f) => !f.text.includes('0 paid preorder units so far (live sandbox)'))).toBe(true);
+    expect(facts.every((f) => !f.text.includes('0 paid preorder units so far (this campaign)'))).toBe(true);
   });
   it.each([15000, 45000, 90000])('budget %i obeys bounds across live, cache, model off, run limit, daily cap, and error', async (budget) => {
     const bInput: Evidence = { budget, preorders: [], recorded: [] };

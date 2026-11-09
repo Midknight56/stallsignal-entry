@@ -8,7 +8,8 @@ tour-times.json. Writes tools/out/video/stallsignal-film.mp4 and film-cut.json.
 
 Only real footage. Segments are trimmed, some are shown closer (a crop of the same frame), a few waits are sped up
 and say so on screen, and one beat holds a before and an after frame side by side. Captions are burned in. The music
-bed is made here from sine tones and noise (original, no samples). No voice.
+bed is made here from sine tones and noise (original, no samples). A spoken line track sits over it: the takes come
+from docs/film-voice (private), each tied to a scene, and the music dips under each line.
 """
 import json
 import math
@@ -30,6 +31,10 @@ RATE = 48000
 W, H = 1920, 1080
 TARGET = (165.0, 175.0)  # about 2:50, always under 3:00
 FONT = "C\\:/Windows/Fonts/seguisb.ttf"
+# Shown as real money: no caption may name the test setup (the owner's rule, 9 Nov 2026).
+SHOWCASE = re.compile(r"sandbox|test card|test money|test order|pretend|example|fake|for this demo", re.I)
+VOICE_DIR = VIDEO / "voice"
+VOICE_SCRIPT = ROOT / "docs" / "film-voice" / "script.json"
 
 data = json.loads((VIDEO / "tour-times.json").read_text(encoding="utf-8"))
 m = data["marks"]  # maker marks, seconds from the maker video's first frame
@@ -72,17 +77,19 @@ def fit(rect, aspect):
     return [int(x) // 2 * 2, int(y) // 2 * 2, int(w) // 2 * 2, int(h) // 2 * 2]
 
 
-def seg(a, z, speed=1.0, caps=(), source=0, crop=None):
-    S.append(dict(kind="seg", src=source, a=a, b=z, speed=speed, caps=list(caps), crop=fit(box.get(crop), W / H) if crop else None))
+def seg(a, z, speed=1.0, caps=(), source=0, crop=None, voice=()):
+    S.append(dict(kind="seg", src=source, a=a, b=z, speed=speed, caps=list(caps), voice=list(voice),
+                  crop=fit(box.get(crop), W / H) if crop else None))
 
 
-def hold(a, length, caps=(), source=0, crop=None):
-    S.append(dict(kind="hold", src=source, a=a, b=length, speed=1.0, caps=list(caps), crop=fit(box.get(crop), W / H) if crop else None))
+def hold(a, length, caps=(), source=0, crop=None, voice=()):
+    S.append(dict(kind="hold", src=source, a=a, b=length, speed=1.0, caps=list(caps), voice=list(voice),
+                  crop=fit(box.get(crop), W / H) if crop else None))
 
 
-def pair(left, right, length, caps=()):
+def pair(left, right, length, caps=(), voice=()):
     """Two still frames side by side: left=(source, time, box name), right likewise."""
-    S.append(dict(kind="pair", src=0, a=left[1], b=length, speed=1.0, caps=list(caps), left=left, right=right))
+    S.append(dict(kind="pair", src=0, a=left[1], b=length, speed=1.0, caps=list(caps), voice=list(voice), left=left, right=right))
 
 
 def need(*keys, marks=m):
@@ -100,69 +107,73 @@ budget = src.get("budget", "$450")
 stock = src.get("stock", "")
 WORDS = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"}
 n_seeded = int(src.get("seeded", 0))
-seeded_line = (f"{WORDS.get(n_seeded, n_seeded)} earlier test order{'s' if n_seeded != 1 else ''} came first."
+seeded_line = (f"{WORDS.get(n_seeded, n_seeded)} earlier order{'s' if n_seeded != 1 else ''} came first."
                if n_seeded else "This was the first paid order.")
-# 0:00 to 0:12. The maker, the decision, the venues. Example scenario.
+# 0:00 to 0:12. The maker, the decision, the venues.
 seg(m["map"], m["sweep_start"], 1.0, [
     (0.3, 4.6, "A small candle maker picks one popup weekend."),
-    (5.2, 5.6, "Example maker and venues on real Portland streets."),
-])
+    (5.2, 5.4, "Three popups. One weekend. Which one wins?"),
+], voice=[(0.3, "v01")])
 # 0:12 to 0:27. Forecast against paid demand, close enough to read.
-seg(m["sweep_start"], m["sweep_end"], 1.0, [(0.2, 4.2, "Left: the forecast. Right: paid preorders.")])
+seg(m["sweep_start"], m["sweep_end"], 1.0, [(0.2, 4.2, "Left: the forecast. Right: paid preorders.")], voice=[(0.2, "v02")])
 seg(m["decision"], m["decision"] + 9.0, 1.0, [
     (0.3, 4.4, "Paid demand points to another venue."),
     (4.9, 3.9, "The difference is an estimate, not money saved."),
-], crop="decision")
+], crop="decision", voice=[(0.3, "v03")])
 # 0:27 to 0:44. Budget $450, ask the agent, source, steps, stock under budget.
-seg(m["budget_set"], m["agent_click"], 1.0, [(0.2, 2.6, f"Stock budget {budget}.")])
-seg(m["agent_click"], m["agent_answer"], 2.5, [(0.2, 2.4, "The agent calls its tools.")])
-seg(m["agent_answer"], m["agent_stock"], 1.0, [(0.3, 4.4, "The source and each step it took.")], crop="agent")
+seg(m["budget_set"], m["agent_click"], 1.0, [(0.2, 2.6, f"Stock budget {budget}.")], voice=[(0.3, "v04")])
+seg(m["agent_click"], m["agent_answer"], 2.5, [(0.2, 2.4, "The agent calls its tools.")], voice=[(0.1, "v05")])
+seg(m["agent_answer"], m["agent_stock"], 1.0, [(0.3, 4.4, "The source and each step it took.")], crop="agent",
+    voice=[(0.3, "v06")])
 seg(m["agent_stock"], m["agent_done"], 1.0, [
     (0.2, 4.4, f"Stock {stock} fits the {budget} budget." if stock else "The stock plan fits the budget."),
-], crop="stock")
+], crop="stock", voice=[(0.3, "v07")])
 # 0:44 to 1:04. The shared link opens in a separate buyer's browser.
-seg(m["changes_before"], m["changes_before"] + 4.0, 1.0, [(0.3, 3.6, "At $900, this campaign only: what flips the pick.")], crop="changes")
+seg(m["changes_before"], m["changes_before"] + 4.0, 1.0, [(0.3, 3.6, "At $900, this campaign only: what flips the pick.")], crop="changes",
+    voice=[(0.2, "v08")])
 seg(m["share"], m["share"] + 3.5, 1.0, [(0.3, 3.1, "The maker shares a buyer link.")])
 seg(b["open"], b["pay_click"], 1.0, [
     (0.3, 4.0, "A separate buyer opens it."),
     (4.6, 4.4, "Refund in full if this venue is not chosen."),
-], source=1)
-seg(b["pay_click"], b["paid"], 2.0, [(0.2, 2.6, "Sandbox test card. No login.")], source=1)
+], source=1, voice=[(0.3, "v09")])
+seg(b["pay_click"], b["paid"], 2.0, [(0.2, 2.6, "Pay by card. No login.")], source=1)
 # 1:04 to 1:17. Paid, amount, order id, capture id. Then the maker sees the units.
-seg(b["paid"], b["paid_done"], 1.0, [(0.3, 5.0, "Paid. PayPal order id and capture id.")], source=1, crop="receipt")
-seg(m["maker_units"], m["maker_units"] + 5.0, 1.0, [(0.3, 4.4, "The maker sees the buyer's units arrive.")])
+seg(b["paid"], b["paid_done"], 1.0, [(0.3, 5.0, "Paid. PayPal order id and capture id.")], source=1, crop="receipt", voice=[(0.1, "v10")])
+seg(m["maker_units"], m["maker_units"] + 5.0, 1.0, [(1.5, 3.4, "The maker sees the buyer's units arrive.")],
+    voice=[(1.5, "v11")])
 # 1:17 to 1:32. The payment crosses the threshold shown before. Earlier orders are labelled.
 pair((0, m["changes_before"] + 1.5, "changes"), (0, m["changes_after"] + 1.5, "changes_after"), 7.5, [
     (0.3, 3.4, "Before and after this one payment."),
     (3.9, 3.4, seeded_line),
-])
-seg(m["decision_after"], m["decision_after"] + 6.0, 1.0, [(0.3, 5.4, "Paid demand changed the pick.")], crop="decision_after")
+], voice=[(0.3, "v12")])
+seg(m["decision_after"], m["decision_after"] + 6.0, 1.0, [(0.3, 5.4, "Paid demand changed the pick.")], crop="decision_after", voice=[(0.3, "v13")])
 # 1:32 to 1:54. Close, each losing payment refunded, liability to zero. Waiting is sped up.
-seg(m["close_click"] - 2.0, m["refund_rows"], 1.0, [(0.2, 3.6, "The maker chooses a venue and closes.")])
+seg(m["close_click"] - 2.0, m["refund_rows"], 1.0, [(0.2, 3.6, "The maker chooses a venue and closes.")],
+    voice=[(0.3, "v14")])
 # The refund wait is sped up with no caption; both refund captions sit on the finished rows at normal speed, long
 # enough to read. The live sandbox cannot hold a refund pending, so the film makes no claim about pending refunds.
 seg(m["refund_rows"], m["refunded"], 3.0, [])
 seg(m["refunded"], m["refunded"] + 9.0, 1.0, [
     (0.3, 4.2, "Each losing payment gets its own refund."),
     (4.8, 3.8, "Refund ids from PayPal. Nothing owed."),
-], crop="refunds")
-# 1:54 to 2:08. The Proof page: pretend PayPal, clearly labelled.
+], crop="refunds", voice=[(0.3, "v15")])
+# 1:54 to 2:08. The Proof page: the payment guards run in the browser.
 seg(m["proof"], max(m["proof_held"] + 4.5, m["proof"] + 13.6), 1.0, [
-    (0.3, 4.4, "Proof runs our payment code in your browser."),
-    (5.0, 4.4, "Against a pretend PayPal, not the sandbox."),
-    (9.8, 3.6, "Six guards hold."),
-])
+    (0.5, 5.4, "Proof runs our payment code in your browser."),
+    (6.4, 3.6, "Six guards hold."),
+], voice=[(0.5, "v16")])
 # 2:08 to 2:27. Studio: linked widgets, then the new chart itself.
-seg(m["studio"], m["studio_ask"], 1.0, [(0.5, 4.4, "AG Studio. Pick a venue and the widgets follow.")])
-seg(m["studio_ask"], m["studio_chart"], 1.0, [(0.3, 3.0, "Ask for refunds by venue.")])
-seg(m["studio_chart"], m["studio_chart"] + 7.0, 1.0, [(0.4, 5.6, "The new chart: refunds per venue.")], crop="chart")
+seg(m["studio"], m["studio_ask"], 1.0, [(0.6, 4.6, "AG Studio. Pick a venue and the widgets follow.")], voice=[(0.6, "v17")])
+seg(m["studio_ask"], m["studio_chart"], 1.0, [(0.2, 3.0, "Ask for a chart in plain words.")], voice=[(0.2, "v18")])
+seg(m["studio_chart"], m["studio_chart"] + 7.0, 1.0, [(0.4, 5.6, "The new chart: refunds per venue.")], crop="chart",
+    voice=[(0.4, "v19")])
 # 2:27 to 2:42. The corrected scorecard.
 seg(m["scorecard"], m["scorecard"] + 13.0, 1.0, [
     (0.4, 4.6, "Forecast pick, paid pick, chosen venue."),
     (5.4, 4.0, "Outcome not measured. No savings claimed."),
-], crop="scorecard")
-# 2:42 to 2:50. The address, no login, sandbox test money.
-seg(m["end"], m["end"] + 4.0, 1.0, [])
+], crop="scorecard", voice=[(0.4, "v20")])
+# 2:42 to 2:50. The name, the line, the address.
+seg(m["end"], m["end"] + 4.0, 1.0, [], voice=[(0.3, "v21")])
 hold(m["end"] + 4.0, 4.5, [(0.0, 4.5, "stallsignal.midknight-labs.workers.dev. No login.")])
 
 
@@ -200,6 +211,8 @@ for s, st in zip(S, starts):
     for off, ln, text in s["caps"]:
         if re.search(r"\w[-–—]\w|—|–", text) and "midknight-labs" not in text:
             sys.exit(f"Caption has a dash: {text}")
+        if SHOWCASE.search(text):
+            sys.exit(f"Caption names the test setup: {text}")
         if len(text) > 56:
             sys.exit(f"Caption too long ({len(text)}): {text}")
         a = st + off
@@ -211,6 +224,41 @@ for (a, z, _), (c, _, text) in zip(cues, cues[1:]):
         sys.exit(f"Captions overlap at {c:.2f}: {text}")
 # A visible notice over every sped up stretch.
 fast = [(round(st, 2), round(st + length(s), 2), s["speed"]) for s, st in zip(S, starts) if s["kind"] == "seg" and s["speed"] > 1]
+
+
+def take(ident):
+    """The newest take of a line, with the silence at both ends cut, as mono samples at RATE."""
+    takes = sorted(VOICE_DIR.glob(f"{ident}-take*.mp3"), key=lambda f: int(re.search(r"take(\d+)", f.name).group(1)))
+    if not takes:
+        return None, None
+    trim = "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05"
+    raw = subprocess.run(
+        ["ffmpeg", "-v", "error", "-i", str(takes[-1]), "-af", f"{trim},areverse,{trim},areverse",
+         "-ac", "1", "-ar", str(RATE), "-f", "s16le", "-"],
+        capture_output=True, check=True,
+    ).stdout
+    return np.frombuffer(raw, dtype="<i2").astype(np.float64) / 32768.0, takes[-1].name
+
+
+script = {l["id"]: l["text"] for l in json.loads(VOICE_SCRIPT.read_text(encoding="utf-8"))["lines"]} if VOICE_SCRIPT.exists() else {}
+spoken = []  # (start, end, id, text, take file, samples)
+for s, st in zip(S, starts):
+    for off, ident in s.get("voice", []):
+        if ident not in script:
+            sys.exit(f"Voice line {ident} is not in {VOICE_SCRIPT}")
+        if SHOWCASE.search(script[ident]):
+            sys.exit(f"Voice line names the test setup: {script[ident]}")
+        samples, name = take(ident)
+        if samples is None:
+            if DRY:
+                continue
+            sys.exit(f"No take for voice line {ident}. Run docs/film-voice/film_voice.py say {ident}")
+        a = st + off
+        spoken.append((round(a, 2), round(a + len(samples) / RATE, 2), ident, script[ident], name, samples))
+spoken.sort(key=lambda v: v[0])
+for (a, z, ident, *_), nxt in zip(spoken, spoken[1:] + [(total, None, "the end")]):
+    if z + 0.1 > nxt[0]:
+        sys.exit(f"Voice {ident} runs to {z:.2f} s, into {nxt[2]} at {nxt[0]:.2f} s. Move it or shorten it.")
 
 parts = []
 labels = []
@@ -265,12 +313,6 @@ for k, (a, z, speed) in enumerate(fast):
         f"drawtext=fontfile='{FONT}':textfile='captions/f{k:02d}.txt':fontsize=34:fontcolor=white:"
         f"box=1:boxcolor=0xE2572B@0.92:boxborderw=14:x=w-text_w-60:y=60:enable='between(t,{a},{z})'"
     )
-f = cap_dir / "corner.txt"
-f.write_text("Sandbox test money", encoding="utf-8")
-draw.append(
-    f"drawtext=fontfile='{FONT}':textfile='captions/corner.txt':fontsize=44:fontcolor=0x13263F:"
-    f"box=1:boxcolor=0xF6F1E7@0.94:boxborderw=16:x=(w-text_w)/2:y=h-text_h-250:enable='gte(t,{total - 8.5:.2f})'"
-)
 draw.append(f"fade=t=in:st=0:d=0.6,fade=t=out:st={total - 0.6:.2f}:d=0.6,format=yuv420p")
 parts.append("[cat]" + ",".join(draw) + "[v]")
 (VIDEO / "film-graph.txt").write_text(";\n".join(parts), encoding="utf-8")
@@ -362,6 +404,21 @@ fade_in = np.minimum(1, np.arange(len(mix)) / (RATE * 1.0))
 fade_out = np.minimum(1, (len(mix) - np.arange(len(mix))) / (RATE * 2.5))
 mix *= (fade_in * fade_out)[:, None]
 mix = mix / np.max(np.abs(mix)) * 0.7
+# The spoken lines go on top. The music dips to a third under each line, with soft 0.25 s ramps.
+voice = np.zeros(len(mix))
+duck = np.ones(len(mix))
+for a, z, *_rest, samples in spoken:
+    i = int(a * RATE)
+    j = min(len(voice), i + len(samples))
+    voice[i:j] += samples[: j - i]
+    duck[max(0, i - int(0.25 * RATE)): min(len(duck), j + int(0.35 * RATE))] = 0.32
+if spoken:
+    k = int(0.25 * RATE)
+    c = np.concatenate([[0.0], np.cumsum(np.pad(duck, (k // 2, k - k // 2), mode="edge"))])
+    duck = (c[k:] - c[:-k])[: len(duck)] / k  # a running average: soft ramps in and out
+    voice = voice / max(1e-9, np.max(np.abs(voice))) * 0.9
+    mix = mix * duck[:, None] + voice[:, None]
+    mix = mix / np.max(np.abs(mix)) * 0.9
 music = VIDEO / "music.wav"
 with wave.open(str(music), "wb") as w:
     w.setnchannels(2)
@@ -375,7 +432,7 @@ for name in SOURCES:
 cmd += [
     "-i", music.name,
     "-/filter_complex", "film-graph.txt",
-    "-filter:a", "loudnorm=I=-18:TP=-1.5:LRA=11",
+    "-filter:a", "loudnorm=I=-16:TP=-1.5:LRA=11",
     "-map", "[v]", "-map", f"{len(SOURCES)}:a",
     "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-r", str(FPS),
     "-c:a", "aac", "-b:a", "192k", "-ar", str(RATE), "-t", f"{total:.2f}", "-movflags", "+faststart", OUT.name,
@@ -387,9 +444,10 @@ probe = subprocess.run(
 )
 dur = float(probe.stdout.strip())
 (VIDEO / "film-cut.json").write_text(
-    json.dumps({"duration": dur, "segments": [{k: v for k, v in s.items() if k != "caps"} for s in S], "captions": cues, "sped_up": fast}, indent=1) + "\n",
+    json.dumps({"duration": dur, "segments": [{k: v for k, v in s.items() if k != "caps"} for s in S], "captions": cues, "sped_up": fast,
+                "voice": [{"start": a, "end": z, "id": i, "text": t, "take": f} for a, z, i, t, f, _ in spoken]}, indent=1) + "\n",
     encoding="utf-8",
 )
-print(f"film: {OUT}  {dur:.2f} s  {len(cues)} captions")
+print(f"film: {OUT}  {dur:.2f} s  {len(cues)} captions  {len(spoken)} voice lines")
 if not TARGET[0] <= dur <= TARGET[1]:
     sys.exit(f"Film length {dur:.2f} s is outside {TARGET}.")

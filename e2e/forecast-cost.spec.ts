@@ -34,7 +34,7 @@ for (const viewport of [
       page.getByRole('heading', { name: 'Synthetic history', exact: true }),
     ).toBeVisible();
     const sections = page.locator('main > section');
-    await expect(sections.first()).toContainText('Recorded sandbox run');
+    await expect(sections.first()).toContainText('Recorded run');
     await expect(sections.first()).toContainText('6 Nov 2026');
     await expect(sections.first()).toContainText('9 preorders. 3 refunds.');
     await expect(sections.first()).toContainText('Paid demand changed the pick.');

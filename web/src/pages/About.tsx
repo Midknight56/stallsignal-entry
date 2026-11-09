@@ -60,6 +60,10 @@ export default function About({ href }: { href: (path: string) => string }) {
         check, the plan comes from code and the panel says so. Each visitor has 12 agent runs and 12 asks a day.
         The app allows 200 runs a day. There is no paid fallback.
       </p>
+      <h2>Map data</h2>
+      <p>
+        Map data: U.S. Census Bureau. Roads, water and landmarks: 2025 TIGER/Line Shapefiles, prepared by the U.S. Census Bureau, 2025. Daytime workers: U.S. Census Bureau, "me_wac_S000_JT00_2024," LEHD Origin Destination Employment Statistics, 8.5, https://lehd.ces.census.gov/data/lodes, accessed on November 8, 2026. TIGER/Line is a registered trademark of the U.S. Census Bureau.
+      </p>
     </main>
   );
 }

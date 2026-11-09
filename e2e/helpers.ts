@@ -42,7 +42,7 @@ export async function startPreorder(
   const response = page.waitForResponse(
     (r) => new URL(r.url()).pathname === '/api/preorders' && r.request().method() === 'POST',
   );
-  await page.getByRole('button', { name: 'Pay with PayPal sandbox', exact: true }).click();
+  await page.getByRole('button', { name: 'Pay with PayPal', exact: true }).click();
   await response;
   await page.waitForURL(
     (url) =>

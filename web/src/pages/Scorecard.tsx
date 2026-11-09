@@ -18,7 +18,6 @@ import { DEFAULT_CONTEXT, contextLabel, type DecisionContext } from '../../../sr
 import { scenarioOf } from '../decision';
 import DecisionCost from '../components/DecisionCost';
 import Grid from '../components/Grid';
-import ExampleTag from '../components/ExampleTag';
 ModuleRegistry.registerModules([AllCommunityModule]);
 export function prepareClosedCampaigns(
   recordedRow: ScorecardCampaignRow | null,
@@ -65,15 +64,15 @@ export function ClosedCampaignCard({
     <article key={c.id} className="card">
       <h3>
         {c.isRecorded ? (
-          'Recorded sandbox run'
+          'Recorded run'
         ) : (
           <>
-            Sandbox campaign <span className="muted">{shortCampaignId(c.id)}</span>
+            Campaign <span className="muted">{shortCampaignId(c.id)}</span>
           </>
         )}
       </h3>
       <p className="evidence-source">
-        {c.isRecorded ? 'Recorded sandbox run' : 'Sandbox payments in this campaign'}
+        {c.isRecorded ? 'Recorded run' : 'Payments in this campaign'}
       </p>
       <p>
         {c.closedAt ? (
@@ -94,7 +93,7 @@ export function ClosedCampaignCard({
       </span>
       <p className="muted">Outcome not measured. The app does not record what sold at the event.</p>
       <p>
-        <ExampleTag /> Forecast pick: {venueName(venues, c.forecastPick)}. Paid pick:{' '}
+        Forecast pick: {venueName(venues, c.forecastPick)}. Paid pick:{' '}
         {venueName(venues, c.paidPick ?? c.decided)}. Chosen:{' '}
         {venueName(venues, c.decided)}.
       </p>

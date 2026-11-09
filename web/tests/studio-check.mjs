@@ -152,7 +152,7 @@ try {
     recordedAt: '2026-11-06',
     recorded: {
       id: 'rec-1',
-      label: 'Recorded sandbox run',
+      label: 'Recorded run',
       preorders: [receipt('recorded', 'refunded', 'wharf', 2800, 'recorded')],
     },
   };
@@ -201,7 +201,7 @@ try {
     await expect(live.locator('.studio-answer .source')).toHaveText(source);
     if (q === 'Refunds') {
       await expect(live.locator('.studio-refund-payment')).toHaveCount(4);
-      await expect(live.locator('.studio-refunds')).not.toContainText('Recorded sandbox run');
+      await expect(live.locator('.studio-refunds')).not.toContainText('Recorded run');
     }
   }
   expect(asks).toEqual(['Over', 'Under', 'Venue', 'Refunds', 'Paid']);

@@ -59,5 +59,5 @@ const dollars = (cents: number) =>
     cents / 100,
   );
 export function contextLabel(c: DecisionContext) {
-  return `${dollars(c.budget)}, ${c.includeRecorded ? 'recorded example included' : 'this campaign only'}, ${c.sharePercent}% preorder share`;
+  return `${dollars(c.budget)}, ${c.includeRecorded ? 'recorded run included' : 'this campaign only'}, ${c.sharePercent}% preorder share`;
 }

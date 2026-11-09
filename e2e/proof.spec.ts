@@ -14,7 +14,7 @@ test('proof opens /proof, waits, and reads six Held rows with no api request and
   await page.goto(`${base}/proof?mock=1`);
   await expect(page.locator('h1')).toBeVisible();
   await expect(page.locator('.proof-banner')).toHaveText(
-    'These checks run the real payment code in your browser against a pretend PayPal. Nothing is sent anywhere.',
+    'These checks run the real payment code in your browser. A local stand in plays PayPal, so nothing is sent anywhere.',
   );
 
   const heldChips = page.locator('.proof-row .chip.held');

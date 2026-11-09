@@ -34,7 +34,7 @@ try {
   results.push('Desktop map, keyboard and pointer comparison, agent allocation');
   await page.getByRole('button', { name: 'Preorder at this venue' }).click();
   await page.getByLabel('Venue', { exact: true }).selectOption('mill');
-  await page.getByRole('button', { name: 'Pay with PayPal sandbox' }).click();
+  await page.getByRole('button', { name: 'Pay with PayPal' }).click();
   await expect(page.getByRole('heading', { name: 'Paid', exact: true }).first()).toBeVisible();
   await expect(page.getByText(/MOCK-CAPTURE/)).toBeVisible();
   await page.getByRole('link', { name: 'View campaign' }).click();
@@ -128,7 +128,7 @@ try {
               recordedAt: '2026-11-06T12:00:00Z',
               recorded: {
                 id: 'recorded-test',
-                label: 'Recorded sandbox run',
+                label: 'Recorded run',
                 preorders: [
                   {
                     ...payment(),
@@ -229,8 +229,8 @@ try {
   await statusPage.goto(base);
   await statusPage.getByRole('button', { name: /Panel height/ }).click();
   await statusPage.getByRole('button', { name: 'Preorder at this venue' }).click();
-  await statusPage.getByRole('button', { name: 'Pay with PayPal sandbox' }).click();
-  await expect(statusPage.getByRole('button', { name: 'Pay with PayPal sandbox' })).toBeDisabled();
+  await statusPage.getByRole('button', { name: 'Pay with PayPal' }).click();
+  await expect(statusPage.getByRole('button', { name: 'Pay with PayPal' })).toBeDisabled();
   await expect(statusPage.getByText('Checking payment', { exact: true }).first()).toBeVisible();
   recordedWorld = true;
   await statusPage.goto(`${base}/receipts`);

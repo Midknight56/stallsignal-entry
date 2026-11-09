@@ -96,6 +96,10 @@ npm run e2e   # headless, against the PayPal sandbox through wrangler dev
 `wrangler.jsonc` also binds a shared AI ledger database (`LEDGER`). Create your own D1 database with an
 `ai_calls(id INTEGER PRIMARY KEY, app TEXT, day TEXT, neurons REAL, at TEXT)` table and point the binding at it.
 
+## Map data
+
+Map data: U.S. Census Bureau. Roads, water and landmarks: 2025 TIGER/Line Shapefiles, prepared by the U.S. Census Bureau, 2025. Daytime workers: U.S. Census Bureau, "me_wac_S000_JT00_2024," LEHD Origin Destination Employment Statistics, 8.5, https://lehd.ces.census.gov/data/lodes, accessed on November 8, 2026. TIGER/Line is a registered trademark of the U.S. Census Bureau.
+
 ## Licence
 
 MIT. See [LICENSE](LICENSE). AG Studio (trial), AG Grid Community, AG Charts Community and the PayPal and Cloudflare services are used

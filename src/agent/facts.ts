@@ -39,8 +39,8 @@ export function makeFacts(input: Evidence): Fact[] {
           .join(' and ') +
         ' (synthetic history).',
     );
-    add(`${row.recordedUnits} paid preorder units so far (recorded sandbox run).`);
-    if (row.paidUnits) add(`${row.paidUnits} paid preorder units so far (live sandbox).`);
+    add(`${row.recordedUnits} paid preorder units so far (recorded run).`);
+    if (row.paidUnits) add(`${row.paidUnits} paid preorder units so far (this campaign).`);
     add(
       `with preorders counted, about ${Math.round(row.blendedUnits)} units and ${money(row.marginCents)} expected margin.`,
     );

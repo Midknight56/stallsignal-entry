@@ -68,7 +68,7 @@ describe('What changes the choice?', () => {
     const html = changes(true);
     expect(html).toContain('aria-label="What changes the choice?"');
     expect(html).toContain('This campaign only');
-    expect(html).toContain('Include recorded example');
+    expect(html).toContain('Include recorded run');
     expect(html).toContain('Preorders are this share of event sales (assumption)');
     // The order sheet owns the names Product and Quantity: the browser tests find it by those names.
     expect(html).not.toContain('aria-label="Product"');
@@ -128,7 +128,7 @@ describe('money words', () => {
         onBudget: () => {},
       }),
     ).replace(/&#x27;/g, "'");
-    expect(html).toContain('Captured in this campaign: $0.00 (sandbox, not refunded)');
+    expect(html).toContain('Captured in this campaign: $0.00 (not refunded)');
     expect(html).toContain('Estimated margin');
     expect(html).not.toContain('Margin on today');
     // The default share is the exact history share, so the panel matches the server decision to the cent.

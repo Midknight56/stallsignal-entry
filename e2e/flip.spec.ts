@@ -67,7 +67,7 @@ test('touching the slider stops the sweep', async ({ page }) => {
   await page.waitForTimeout(2200);
   await expect(slider).toHaveAttribute('aria-valuenow', '5');
 });
-test('answer source is beside the answer and the header only describes test money', async ({ page }) => {
+test('answer source is beside the answer and the header shows no mode badge', async ({ page }) => {
   let source: 'ai' | 'cache' | 'recorded' | 'code' = 'ai';
   await page.route('**/api/**', async (route) => {
     const path = new URL(route.request().url()).pathname;
@@ -80,8 +80,7 @@ test('answer source is beside the answer and the header only describes test mone
     await route.fulfill({ json: body });
   });
   await page.goto('/?nosweep=1');
-  await expect(page.locator('.modes')).toHaveText('Sandbox: test money');
-  await expect(page.locator('.modes .chip')).toHaveCount(0);
+  await expect(page.locator('.modes')).toHaveCount(0);
   for (const [answerSource, label] of [
     ['ai', 'Live AI'],
     ['cache', 'Saved from a live answer'],
@@ -91,10 +90,10 @@ test('answer source is beside the answer and the header only describes test mone
     source = answerSource;
     await page.getByRole('button', { name: 'Ask the agent', exact: true }).click();
     await expect(page.locator('.agent-panel .source')).toContainText(label);
-    await expect(page.locator('.modes')).toHaveText('Sandbox: test money');
+    await expect(page.locator('.modes')).toHaveCount(0);
   }
   await page.getByRole('link', { name: 'Campaign', exact: true }).click();
-  await expect(page.locator('.modes')).toHaveText('Sandbox: test money');
+  await expect(page.locator('.modes')).toHaveCount(0);
   await page.reload();
-  await expect(page.locator('.modes')).toHaveText('Sandbox: test money');
+  await expect(page.locator('.modes')).toHaveCount(0);
 });

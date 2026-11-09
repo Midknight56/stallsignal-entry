@@ -11,7 +11,6 @@ import {
   venueName,
 } from '../format';
 import { venues } from '../../../src/data/venues';
-import ExampleTag from './ExampleTag';
 export default function Receipt({
   preorder: p,
   campaign,
@@ -24,7 +23,7 @@ export default function Receipt({
       <div className="section-head">
         <h2>{stateLabel(p.state)}</h2>
         <span className={`chip ${stateTone(p.state)}`}>
-          {p.source === 'recorded' ? 'Recorded sandbox run' : 'Live sandbox'}
+          {p.source === 'recorded' ? 'Recorded run' : 'Live payment'}
         </span>
       </div>
       {p.state === 'failed' && <p role="status">PayPal could not be reached. Nothing was charged.</p>}
@@ -32,9 +31,7 @@ export default function Receipt({
       <dl className="receipt-details">
         <div>
           <dt>Venue</dt>
-          <dd>
-            {venueName(venues, p.venue)} <ExampleTag />
-          </dd>
+          <dd>{venueName(venues, p.venue)}</dd>
         </div>
         <div>
           <dt>Method</dt>

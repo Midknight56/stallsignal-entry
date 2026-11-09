@@ -95,7 +95,7 @@ describe('one decision context on every screen', () => {
       }),
     );
     expect(old).toContain(
-      `Worked out at the default: $900, recorded example included, ${HISTORY_SHARE_PERCENT}% preorder share.`,
+      `Worked out at the default: $900, recorded run included, ${HISTORY_SHARE_PERCENT}% preorder share.`,
     );
   });
 });

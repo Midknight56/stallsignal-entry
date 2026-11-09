@@ -76,7 +76,7 @@ describe('Studio table shaping', () => {
       {
         ...world,
         recordedAt: '2026-11-06',
-        recorded: { id: 'rec-1', label: 'Recorded sandbox run', preorders: [recorded] },
+        recorded: { id: 'rec-1', label: 'Recorded run', preorders: [recorded] },
       },
       campaign,
       scorecard(),
@@ -85,9 +85,9 @@ describe('Studio table shaping', () => {
     expect(tables.preorders.find((p) => p.id === 'recorded')).toMatchObject({
       state: 'refunded',
       liabilityCents: 0,
-      source: 'Recorded sandbox run, 2026-11-06',
+      source: 'Recorded run, 2026-11-06',
     });
-    expect(tables.evidence.find((r) => r.id === 'payment:live')?.source).toBe('Live sandbox');
+    expect(tables.evidence.find((r) => r.id === 'payment:live')?.source).toBe('Live payment');
     expect(tables.evidence.find((r) => r.id === 'payment:recorded')?.kind).toBe('recorded');
     expect(tables.venues.find((v) => v.venueId === 'wharf')?.paid).toBe(0);
   });

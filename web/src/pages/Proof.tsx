@@ -23,10 +23,7 @@ export default function Proof() {
     <main className="page narrow proof-page">
       <p className="eyebrow">Browser proof</p>
       <h1>Payment guard proofs</h1>
-      <p className="proof-banner">
-        These checks run the real payment code in your browser. A local stand in plays PayPal, so nothing is sent
-        anywhere.
-      </p>
+      <p className="proof-banner">These checks run the real payment code in your browser.</p>
 
       <div className="proof-actions">
         <button type="button" className="button" onClick={execute} disabled={running}>

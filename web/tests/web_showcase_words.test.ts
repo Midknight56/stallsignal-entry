@@ -136,5 +136,8 @@ describe('showcase words: no sandbox, test or example badges on flow screens', (
   it('the Proof page banner', () => {
     const proofMarkup = renderToStaticMarkup(createElement(Proof));
     expect(proofMarkup).not.toMatch(FORBIDDEN);
+    // No stand in wording on screen: the banner says only what runs.
+    expect(proofMarkup).not.toMatch(/stand in|nothing is sent/i);
+    expect(proofMarkup).toContain('<p class="proof-banner">These checks run the real payment code in your browser.</p>');
   });
 });

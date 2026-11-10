@@ -7,15 +7,17 @@ Live demo: https://stallsignal.midknight-labs.workers.dev (no login)
 
 ## Judging criteria at a glance
 
-**Technological Implementation.** PayPal Orders v2 (create, buyer approval, capture, read, and a test card path), Payments v2 (one refund per captured payment at a losing venue) and verified Webhooks. Every write saves its PayPal-Request-Id before the call. AI: IBM Granite 4.0 H Micro on Workers AI with function calling, for at most four turns. Code does all money, totals and stock.
+**In short.** StallSignal is for small makers choosing between popup markets for one weekend. It shows a forecast beside refundable PayPal preorders, so paid demand can change the pick. An AI agent calls tools to plan stock within a budget. Code does all money, totals and stock. When the maker chooses, every preorder at a losing venue is refunded.
 
-**Design.** A full screen map of downtown Portland, Maine: the forecast on one side, paid preorders on the other, and a line that sweeps between them. On the AG Studio dashboard, pick a venue in any widget and every widget filters to it.
+**Technological Implementation.** PayPal Orders v2 (create, buyer approval, capture, read, and a test card path), Payments v2 (one refund per captured payment at a losing venue) and verified Webhooks. Every write saves its PayPal-Request-Id before the call. AI: IBM Granite 4.0 H Micro on Workers AI with function calling, for at most four turns. Code does all money, totals and stock. Check it: [src/paypal/client.ts](https://github.com/Midknight56/stallsignal-entry/blob/main/src/paypal/client.ts), [src/engine/preorders.ts](https://github.com/Midknight56/stallsignal-entry/blob/main/src/engine/preorders.ts), [src/engine/webhooks.ts](https://github.com/Midknight56/stallsignal-entry/blob/main/src/engine/webhooks.ts), [src/agent/loop.ts](https://github.com/Midknight56/stallsignal-entry/blob/main/src/agent/loop.ts).
 
-**Potential Impact.** For small makers who pay for a popup booth before they know it will sell: $200 to $375 a booth plus a $25 fee that is not refunded (Brick South Spring '26 Maker's Market, Eventeny vendor page). Busy places are not always good places.
+**Design.** A full screen map of downtown Portland, Maine: the forecast on one side, paid preorders on the other, and a line that sweeps between them. On the AG Studio dashboard, pick a venue in any widget and every widget filters to it. Check it: [web/src/components/Grid.tsx](https://github.com/Midknight56/stallsignal-entry/blob/main/web/src/components/Grid.tsx).
 
-**Innovation/Idea.** Refundable PayPal preorders test the forecast before the maker commits. "What changes the choice?" says how many more orders would make each other venue the pick, and every preorder at a losing venue is refunded.
+**Potential Impact.** For small makers who pay for a popup booth before they know it will sell: $200 to $375 a booth plus a $25 fee that is not refunded (Brick South Spring '26 Maker's Market, Eventeny vendor page). Busy places are not always good places. Sources: [docs/SOURCES.md](https://github.com/Midknight56/stallsignal-entry/blob/main/docs/SOURCES.md).
 
-**Presentation.** The video runs 2 minutes 53 seconds. Try it at https://stallsignal.midknight-labs.workers.dev with no login, in about two minutes. The Proof page shows six payment guards holding.
+**Innovation/Idea.** Refundable PayPal preorders test the forecast before the maker commits. "What changes the choice?" says how many more orders would make each other venue the pick, and every preorder at a losing venue is refunded. A forecast alone guesses demand. A refundable preorder measures it before the maker commits stock. Check it: [web/src/components/WhatChanges.tsx](https://github.com/Midknight56/stallsignal-entry/blob/main/web/src/components/WhatChanges.tsx).
+
+**Presentation.** The video runs 2 minutes 53 seconds. Try it at https://stallsignal.midknight-labs.workers.dev with no login, in about two minutes. The Proof page shows six payment guards holding. Video guide: 0:11 the forecast beside paid preorders; 0:30 the agent plans stock within the budget; 0:53 a buyer preorders with a refund promise; 1:25 paid demand changes the pick; 1:40 every losing payment is refunded; 1:49 the proof page runs six guards; 2:03 AG Studio filters every widget.
 
 ## For judges
 

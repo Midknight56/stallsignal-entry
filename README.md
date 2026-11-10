@@ -5,6 +5,18 @@ prove it wrong.
 
 Live demo: https://stallsignal.midknight-labs.workers.dev (no login)
 
+## Judging criteria at a glance
+
+**Technological Implementation.** PayPal Orders v2 (create, buyer approval, capture, read, and a test card path), Payments v2 (one refund per captured payment at a losing venue) and verified Webhooks. Every write saves its PayPal-Request-Id before the call. AI: IBM Granite 4.0 H Micro on Workers AI with function calling, for at most four turns. Code does all money, totals and stock.
+
+**Design.** A full screen map of downtown Portland, Maine: the forecast on one side, paid preorders on the other, and a line that sweeps between them. On the AG Studio dashboard, pick a venue in any widget and every widget filters to it.
+
+**Potential Impact.** For small makers who pay for a popup booth before they know it will sell: $200 to $375 a booth plus a $25 fee that is not refunded (Brick South Spring '26 Maker's Market, Eventeny vendor page). Busy places are not always good places.
+
+**Innovation/Idea.** Refundable PayPal preorders test the forecast before the maker commits. "What changes the choice?" says how many more orders would make each other venue the pick, and every preorder at a losing venue is refunded.
+
+**Presentation.** The video runs 2 minutes 53 seconds. Try it at https://stallsignal.midknight-labs.workers.dev with no login, in about two minutes. The Proof page shows six payment guards holding.
+
 ## For judges
 
 The two minute path, no login needed:

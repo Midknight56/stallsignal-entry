@@ -55,7 +55,7 @@ try {
       await expect(page.locator('h1')).toBeVisible();
       if (path === '/scorecard')
         await expect(
-          page.getByRole('region', { name: 'Synthetic history, forecast and actual table' }),
+          page.getByRole('region', { name: 'Forecast history, forecast and actual table' }),
         ).toBeVisible();
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
       expect(overflow, `${path} overflow at ${viewport.width}`).toBe(false);

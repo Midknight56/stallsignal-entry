@@ -31,7 +31,7 @@ for (const viewport of [
     await noHorizontalScroll(page);
     await page.goto(`${base}/scorecard?mock=1`);
     await expect(
-      page.getByRole('heading', { name: 'Synthetic history', exact: true }),
+      page.getByRole('heading', { name: 'Forecast history', exact: true }),
     ).toBeVisible();
     const sections = page.locator('main > section');
     await expect(sections.first()).toContainText('Recorded run');

@@ -26,7 +26,7 @@ export function makeFacts(input: Evidence): Fact[] {
     const money = (cents: number) =>
       new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
     add(
-      `forecast ${row.forecastUnits} units, expected margin ${money(expectedMargin(venue, row.forecastUnits, input.budget))} at this stock budget (synthetic history).`,
+      `forecast ${row.forecastUnits} units, expected margin ${money(expectedMargin(venue, row.forecastUnits, input.budget))} at this stock budget (forecast history).`,
     );
     const history = scorecard().history.filter((h) => h.venue === venue.id && h.season !== 'summer');
     add(
@@ -37,7 +37,7 @@ export function makeFacts(input: Evidence): Fact[] {
               `${Math.abs(Math.round(h.errorPercent))}% too ${h.errorPercent > 0 ? 'high' : 'low'} in ${h.season}`,
           )
           .join(' and ') +
-        ' (synthetic history).',
+        ' (forecast history).',
     );
     add(`${row.recordedUnits} paid preorder units so far (recorded run).`);
     if (row.paidUnits) add(`${row.paidUnits} paid preorder units so far (this campaign).`);

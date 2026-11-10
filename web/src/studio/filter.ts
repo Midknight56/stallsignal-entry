@@ -122,7 +122,7 @@ export function chartWidget(view: View, dark = false) {
           ],
     },
     format: {
-      title: { enabled: true, text: paid ? 'Paid units and forecast' : 'Forecast error · Synthetic history' },
+      title: { enabled: true, text: paid ? 'Paid units and forecast' : 'Forecast error by weekend' },
       crossFilter: 'filter' as const,
       style: {
         theme: { common: { legend: { enabled: true, position: 'bottom' as const } } },

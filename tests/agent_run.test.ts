@@ -269,7 +269,7 @@ describe('agent run', () => {
           new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
         expect(facts[i * 4].text).toBe(
           prefix +
-            `forecast ${row.forecastUnits} units, expected margin ${money(row.marginCents)} at this stock budget (synthetic history).`,
+            `forecast ${row.forecastUnits} units, expected margin ${money(row.marginCents)} at this stock budget (forecast history).`,
         );
         expect(facts[i * 4 + 1].text).toBe(
           prefix +
@@ -281,7 +281,7 @@ describe('agent run', () => {
                   `${Math.abs(Math.round(h.errorPercent))}% too ${h.errorPercent > 0 ? 'high' : 'low'} in ${h.season}`,
               )
               .join(' and ') +
-            ' (synthetic history).',
+            ' (forecast history).',
         );
         expect(facts[i * 4 + 2].text).toBe(
           prefix + `${row.recordedUnits} paid preorder units so far (recorded run).`,
@@ -296,10 +296,10 @@ describe('agent run', () => {
     }
     const facts = makeFacts(input);
     expect(facts.find((f) => f.venue === 'wharf' && f.text.includes('past forecasts'))?.text).toBe(
-      'Shed 9 at the Wharf: past forecasts were 56% too high in autumn and 76% too high in winter (synthetic history).',
+      'Shed 9 at the Wharf: past forecasts were 56% too high in autumn and 76% too high in winter (forecast history).',
     );
     expect(facts.find((f) => f.venue === 'mill' && f.text.includes('past forecasts'))?.text).toBe(
-      'Millrace Hall: past forecasts were 18% too low in autumn and 21% too low in winter (synthetic history).',
+      'Millrace Hall: past forecasts were 18% too low in autumn and 21% too low in winter (forecast history).',
     );
   });
   it('keeps all venue facts within the cap with live and recorded demand', () => {

@@ -67,7 +67,7 @@ export function shapeTables(world: MapWorld, campaign: CampaignView, scorecard: 
     direction: row.errorPercent > 0 ? 'Over' : row.errorPercent < 0 ? 'Under' : 'Exact',
     over: row.errorPercent > 0 ? row.errorPercent : null,
     under: row.errorPercent < 0 ? row.errorPercent : null,
-    source: 'Synthetic history',
+    source: 'Forecast history',
   }));
   // Keep the recorded receipt authoritative if a combined response repeats its id.
   const receipts = new Map<string, Preorder>(
@@ -104,7 +104,7 @@ export function shapeTables(world: MapWorld, campaign: CampaignView, scorecard: 
       kind: 'forecast',
       label: 'Winter forecast',
       value: `${v.forecastUnits} units`,
-      source: 'Synthetic history',
+      source: 'Forecast history',
     });
     evidence.push({
       id: `${v.id}:paid`,
@@ -183,7 +183,7 @@ export function studioData(tables: StudioTables): AgDataSourcesDefinition {
       },
       {
         id: 'history',
-        name: 'Synthetic history',
+        name: 'Forecast history',
         data: tables.history,
         fields: [
           ...venueFields,

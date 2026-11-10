@@ -142,7 +142,7 @@ export default function Scorecard({
       ...r,
       label: `${r.venue === 'wharf' ? 'Wharf' : r.venue === 'mill' ? 'Mill' : 'Linden'}, ${r.season}`,
     })),
-    title: { text: 'Synthetic history' },
+    title: { text: 'Forecast history' },
     subtitle: { text: 'Forecast vs actual units' },
     background: { fill: dark ? '#16283A' : '#F6F1E7' },
     theme: {
@@ -211,8 +211,8 @@ export default function Scorecard({
       {!data && !error && <p role="status">Loading scorecard…</p>}
       {data && (
         <>
-          <h2 id="history-caption">Synthetic history</h2>
-          <p>The past weekends are invented to show forecast error on synthetic history.</p>
+          <h2 id="history-caption">Forecast history</h2>
+          <p>Eight weekends of forecast against actual sales, by venue.</p>
           <div className="chart card">
             <AgCharts options={options} />
           </div>
@@ -220,7 +220,7 @@ export default function Scorecard({
             <Grid
               rows={data.history}
               columns={columns}
-              label="Synthetic history, forecast and actual table"
+              label="Forecast history, forecast and actual table"
             />
           </section>
           <div className="totals">
@@ -228,7 +228,7 @@ export default function Scorecard({
               <article className="card" key={v.venue}>
                 <h3>{venueName(world.venues, v.venue)}</h3>
                 <p>{v.meanAbsoluteError.toFixed(1)}% mean absolute error</p>
-                <span className="small">Synthetic history</span>
+                <span className="small">Forecast history</span>
               </article>
             ))}
           </div>

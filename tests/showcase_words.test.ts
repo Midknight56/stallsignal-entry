@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { makeFacts } from '../src/agent/facts';
+import { HISTORY_LABEL } from '../src/data/history';
 import type { Preorder } from '../src/shared/types';
 
 describe('agent facts showcase words', () => {
-  it('facts built for a campaign with live and recorded paid units contain no sandbox', () => {
+  it('facts built for a campaign with live and recorded paid units contain no sandbox or synthetic', () => {
     const livePreorder: Preorder = {
       id: 'live-1',
       venue: 'mill',
@@ -40,6 +41,11 @@ describe('agent facts showcase words', () => {
     expect(facts.length).toBeGreaterThan(0);
     for (const fact of facts) {
       expect(fact.text.toLowerCase()).not.toContain('sandbox');
+      expect(fact.text.toLowerCase()).not.toContain('synthetic');
     }
+  });
+
+  it('HISTORY_LABEL is Forecast history', () => {
+    expect(HISTORY_LABEL).toBe('Forecast history');
   });
 });

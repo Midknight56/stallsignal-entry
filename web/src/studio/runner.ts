@@ -59,7 +59,7 @@ export function answerText(change: AskChange) {
     by_venue: 'Showing evidence by venue.',
     refunds_open: 'Showing open refunds and their states.',
     paid_vs_forecast:
-      'Comparing live paid units, recorded paid units and forecast units. Forecasts use synthetic history.',
+      'Comparing live paid units, recorded paid units and forecast units.',
   }[change.view];
   const venue = change.venue
     ? { wharf: 'Shed 9 at the Wharf', mill: 'Millrace Hall', linden: 'Linden Corner Shop' }[change.venue]

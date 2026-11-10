@@ -144,8 +144,7 @@ export default function App() {
           </main>
         ) : !world || !campaign ? (
           <main className="page" role="status">
-            Loading downtown Portland, Maine. Real streets and daytime workers from 2024. Example venues and
-            synthetic history…
+            Loading downtown Portland, Maine. Real streets and daytime workers from 2024…
           </main>
         ) : (
           <Suspense

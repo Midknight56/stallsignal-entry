@@ -14,7 +14,7 @@ import { freshCampaign, world } from '../src/mock/fixtures';
 import { closedCampaign } from '../../src/domain/scorecard';
 import type { SharedCampaignView } from '../../src/shared/types';
 
-const FORBIDDEN = /sandbox|test card|test money|example venue|example maker|pretend/i;
+const FORBIDDEN = /sandbox|test card|test money|example venue|example maker|pretend|synthetic|simulat/i;
 const paid = world.recorded!.preorders.find((p) => p.state === 'captured')!;
 
 describe('showcase words: no sandbox, test or example badges on flow screens', () => {
@@ -124,11 +124,12 @@ describe('showcase words: no sandbox, test or example badges on flow screens', (
         sharePercent: 20,
         share: 0.2,
         onSharePercent: () => {},
-        historySharePercent: 20,
+        historySharePercent: 12,
       }),
     );
     expect(whatChangesMarkup).not.toMatch(FORBIDDEN);
     expect(whatChangesMarkup).not.toMatch(/recorded example/i);
+    expect(whatChangesMarkup).toContain('12% (default)');
   });
 
   it.skip('the agent panel recorded run block - skipped: recordedExample is internal state in AgentPanel populated only via getRecordedAgent() on button click, cannot be rendered with a fixture via renderToStaticMarkup', () => {});

@@ -1,6 +1,6 @@
 import type { HistoryRow } from '../shared/types';
 
-export const HISTORY_LABEL = 'Synthetic history';
+export const HISTORY_LABEL = 'Forecast history';
 export const history: (HistoryRow & { label: string })[] = [
   {
     id: 'h1',

@@ -79,7 +79,7 @@ describe('routing and session failures', () => {
     };
     expect(body.city.label).toBe('Real streets');
     expect(body.modes).toContain('Example venues');
-    expect(body.history.every((h) => h.label === 'Synthetic history')).toBe(true);
+    expect(body.history.every((h) => h.label === 'Forecast history')).toBe(true);
     expect(body.heat.every((h) => h.label === 'Daytime workers, 2024')).toBe(true);
     expect(body.recorded.recordedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
     expect(body.recorded.label).toBe('Recorded run');

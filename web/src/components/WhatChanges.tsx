@@ -80,7 +80,7 @@ export default function WhatChanges({
       >
         {shares.map((s) => (
           <option key={s} value={String(s)}>
-            {s === historySharePercent ? `${s}% (synthetic history)` : `${s}%`}
+            {s === historySharePercent ? `${s}% (default)` : `${s}%`}
           </option>
         ))}
       </select>

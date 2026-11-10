@@ -191,7 +191,7 @@ export default function Panel({
         </div>
         {!recordingTime(world) && <p className="small">Recorded run not captured yet</p>}
         <p className="small">
-          Forecast uses synthetic history. Recorded paid demand and your live paid demand shape the choice.
+          Recorded paid demand and your live paid demand shape the choice.
         </p>
         <AgentPanel
           world={world}

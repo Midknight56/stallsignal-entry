@@ -45,7 +45,7 @@ function MapWidget() {
         <span className="forecast">Orange: forecast</span>
         <span className="paid">Teal: paid evidence</span>
         <span>Heat: daytime workers, 2024</span>
-        <span>Synthetic history</span>
+        <span>Forecast history</span>
         <span>Map data: U.S. Census Bureau (TIGER/Line 2025, LODES 8.5).</span>
       </div>
       <div className="studio-map-venues">

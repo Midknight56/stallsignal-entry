@@ -30,7 +30,7 @@ describe('Studio table shaping', () => {
     const tables = shapeTables(world, freshCampaign(), scorecard());
     expect(tables.venues).toHaveLength(3);
     expect(tables.history).toHaveLength(8);
-    expect(tables.history.every((r) => r.source === 'Synthetic history')).toBe(true);
+    expect(tables.history.every((r) => r.source === 'Forecast history')).toBe(true);
     const wharf = tables.history.find((r) => r.id === 'h2')!;
     expect(wharf.errorPercent).toBeCloseTo((54 / 96) * 100);
     expect(wharf.over).toBeCloseTo(wharf.errorPercent);

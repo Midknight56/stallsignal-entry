@@ -446,8 +446,7 @@ function StudioPage() {
         )}
         {!snapshot && !loadError && (
           <p role="status">
-            Loading downtown Portland, Maine. Real streets and daytime workers from 2024. Example venues and
-            synthetic history…
+            Loading downtown Portland, Maine. Real streets and daytime workers from 2024…
           </p>
         )}
         {snapshot && tables && (
